@@ -20,4 +20,34 @@ public class AllRecipe {
 	private String q;
 	
 	private List<Hit> hits;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getQ() {
+		return q;
+	}
+
+	public void setQ(String q) {
+		this.q = q;
+	}
+
+	public List<Hit> getHits() {
+		return hits;
+	}
+
+	public void setHits(List<Hit> hits) {
+		this.hits = hits;
+	}
+
+	@Override
+	public String toString() {
+		return "AllRecipe [id=" + id + ", q=" + q + ", hits=" + hits + "]";
+	}
+	
 }
