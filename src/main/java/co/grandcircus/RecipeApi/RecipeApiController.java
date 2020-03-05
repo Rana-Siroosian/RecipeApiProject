@@ -25,13 +25,23 @@ public class RecipeApiController {
 	}
 	
 	@PostMapping("/")
-	public ModelAndView showHome(@RequestParam(value="food") String food) {
-		
-		RecipeResponse res = apiServ.findRecipe(food);
-		
+	public ModelAndView showHome(@RequestParam(value="food") String food,
+			@RequestParam(value="diet", required=false) List<String> diet,
+			@RequestParam(value="mincal", required=false) Double min,
+			@RequestParam(value="maxcal", required=false) Double max ){
 		ModelAndView mav = new ModelAndView ("request");
-		
+		RecipeResponse res = null;
+		if((diet == null || diet.isEmpty()) && (min == null || max == null)) {
+			res = apiServ.findRecipe(food);	
+		} else if (min == null || max == null){
+			res = apiServ.findRecipe(food,diet);	
+		} else if (diet == null || diet.isEmpty()){ 
+			res = apiServ.findRecipe(food,min, max);
+		} else {
+			res = apiServ.findRecipe(food, diet, min, max);
+		}
 		mav.addObject("recipes", res.getHits());
+
 		return mav;
 		
 	}

@@ -18,10 +18,25 @@
 	<main class="container">
 		<form action="/" method="post">
 			<section class="jumbotron">
-
-				<label>Food Name<input type="text" name="food" required></label>
+			<h2>Food Search</h2>
 			</section>
+			<fieldset>
+			<label>Food Name<input type="text" name="food" required></label>
+			<section class="container">
+			<label><input type="checkbox" name="diet" value="balanced">Balanced</label>
+			<label><input type="checkbox" name="diet" value="high-fiber">High-Fiber</label>
+			<label><input type="checkbox" name="diet" value="high-protein">High-Protein</label>
+			<label><input type="checkbox" name="diet" value="low-carb">Low-Carb</label>
+			<label><input type="checkbox" name="diet" value="low-fat">Low-fat</label>
+			<label><input type="checkbox" name="diet" value="low-sodium">Low-Sodium</label>
+				</section>
+				<section>
+				<span>Calories</span><br><input type="number" name="mincal" step="0.1"placeholder="Min"><br><input type="number" name="maxcal" step="0.1"placeholder="Max">
+				</section>		
+			
+			</fieldset>
 			<button type="submit" class="btn btn-secondary">Submit</button>
+			
 		</form>
 	</main>
 </body>
