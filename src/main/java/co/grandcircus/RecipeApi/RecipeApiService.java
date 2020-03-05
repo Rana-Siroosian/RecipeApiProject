@@ -6,7 +6,6 @@ import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.web.client.RestTemplate;
 
 import co.grandcircus.RecipeApi.Entity.RecipeResponse;
-
 public class RecipeApiService {
 	
 	private RestTemplate rt;
