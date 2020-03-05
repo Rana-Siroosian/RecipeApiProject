@@ -16,8 +16,8 @@
 
 <section class="jumbotron">
 
-<c:forEach var="res" items="recipes">
-<p>${ res.recipe }</p>
+<c:forEach var="res" items="${recipes}">
+<p>${res.recipe}</p>
 
 </c:forEach>
 </section>
