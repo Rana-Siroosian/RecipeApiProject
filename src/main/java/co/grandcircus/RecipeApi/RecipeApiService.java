@@ -3,9 +3,12 @@ package co.grandcircus.RecipeApi;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import co.grandcircus.RecipeApi.Entity.RecipeResponse;
+
+@Component
 public class RecipeApiService {
 	
 	private RestTemplate rt;
