@@ -2,7 +2,6 @@ package co.grandcircus.RecipeApi.Entity;
 
 import java.util.List;
 
-import javax.persistence.Entity;
 
 public class Recipe {
 
@@ -44,10 +43,13 @@ public class Recipe {
 	public void setDietLabels(List<String> dietLabels) {
 		this.dietLabels = dietLabels;
 	}
-	public List<String> getIngredientLines() {
-		return ingredientLines;
+	public String getIngredientLines() {
+		
+		
+		return ingredientLines.toString().replace("[", "").replace("]", "");
 	}
 	public void setIngredientLines(List<String> ingredientLines) {
+		
 		this.ingredientLines = ingredientLines;
 	}
 	public Double getCalories() {
@@ -64,6 +66,7 @@ public class Recipe {
 	}
 	@Override
 	public String toString() {
+		
 		return "Recipe [uri=" + uri + ", label=" + label + ", image=" + image + ", url=" + url + ", dietLabels="
 				+ dietLabels + ", ingredientLines=" + ingredientLines + ", calories=" + calories + ", totalTime="
 				+ totalTime + "]";
