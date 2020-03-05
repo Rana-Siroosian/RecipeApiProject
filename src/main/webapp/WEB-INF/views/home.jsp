@@ -21,7 +21,7 @@
 
 				<label>Food Name<input type="text" name="food" required></label>
 			</section>
-			<button type="submit" class="btn btn-secondary"></button>
+			<button type="submit" class="btn btn-secondary">Submit</button>
 		</form>
 	</main>
 </body>
