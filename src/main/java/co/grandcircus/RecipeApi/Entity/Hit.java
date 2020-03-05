@@ -2,7 +2,7 @@ package co.grandcircus.RecipeApi.Entity;
 
 import javax.persistence.Entity;
 
-@Entity
+
 public class Hit {
 	
 	private Recipe recipe;
