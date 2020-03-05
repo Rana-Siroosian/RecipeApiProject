@@ -17,7 +17,7 @@ public class RecipeResponse {
 	private String q;
 	
 	private List<Hit> hits;
-
+		
 	public Long getId() {
 		return id;
 	}
