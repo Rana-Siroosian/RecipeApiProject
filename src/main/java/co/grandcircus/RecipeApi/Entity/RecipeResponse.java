@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
-public class AllRecipe {
+public class RecipeResponse {
 
 	private Long id;
 	
