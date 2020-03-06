@@ -25,7 +25,7 @@ public class RecipeApiService {
 	}
 	
 	// Only queries
-	public RecipeResponse findRecipe(String food ) {
+	public RecipeResponse findRecipe(String food) {
 		
 		String id ="8ad75853";
 		String key = "63b976796710fec2131492b3d8e4f9a3";
@@ -91,6 +91,56 @@ public class RecipeApiService {
 		RecipeResponse response = rt.getForObject(url, RecipeResponse.class);
 		return response;
 	}
+	
+	
+	public String findUrl(String food) {
+		String id ="8ad75853";
+		String key = "63b976796710fec2131492b3d8e4f9a3";
+		String url = "https://api.edamam.com/search?app_id="+id+"&app_key="+key+"&q="+food;
+		return url;
+	}
+	
+	public String findUrl(String food, List<String> diet) {
+		String id ="8ad75853";
+		String key = "63b976796710fec2131492b3d8e4f9a3";
+		String url = "https://api.edamam.com/search?app_id="+id+"&app_key="+key+"&q="+food;
+		
+		for(int i=0; i< diet.size(); i++) {
+			url += "&diet="+diet.get(i);
+		}
+		return url;
+	}
+	public String findUrl(String food, List<String> diet, Integer min, Integer max) {
+		String id ="8ad75853";
+		String key = "63b976796710fec2131492b3d8e4f9a3";
+		String url = "https://api.edamam.com/search?app_id="+id+"&app_key="+key+"&q="+food;
+		
+		for(int i=0; i< diet.size(); i++) {
+			url += "&diet="+diet.get(i);
+		}
+		
+		url += "&calories="+min+"-"+max;
+		return url;
+	}
+	public String findUrl(String food, Integer min, Integer max) {
+		String id ="8ad75853";
+		String key = "63b976796710fec2131492b3d8e4f9a3";
+		String url = "https://api.edamam.com/search?app_id="+id+"&app_key="+key+"&q="+food;
+		
+		url += "&calories="+min+"-"+max;
+		return url;
+	}
+	public String findUrl(String food, String label) {
+		String id ="8ad75853";
+		String key = "63b976796710fec2131492b3d8e4f9a3";
+		String url = "https://api.edamam.com/search?app_id="+id+"&app_key="+key+"&q="+food;
+		
+		url += "&label=" + label;
+		
+		return url;
+	}
+	
+	
 	
 	
 }

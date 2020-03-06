@@ -46,7 +46,7 @@
 
 								<th><a class = "btn btn-secondary" href="one-recipe/?ingre=${res.recipe.ingredientLines}">Check
 										Me</a></th>
-								<th><a class = "btn btn-secondary" href="/favorite?label=${res.recipe.label }&url=${res.recipe.url}">Favorite</a></th>
+								<th><a class = "btn btn-secondary" href="/favorite?label=${res.recipe.label}&url=${res.recipe.url}&theUrl=${theUrl}">Favorite</a></th>
 							</tr>
 
 						</c:forEach>

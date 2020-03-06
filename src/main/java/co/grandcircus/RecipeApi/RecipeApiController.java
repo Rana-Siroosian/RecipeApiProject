@@ -36,30 +36,28 @@ public class RecipeApiController {
 		ModelAndView mav = new ModelAndView ("request");
 		
 		RecipeResponse res = null;
+		String url = null;
 		if((diet == null || diet.isEmpty()) && (min == null || max == null)) {
-			System.out.println("one");
 			res = apiServ.findRecipe(food);	
+			url = apiServ.findUrl(food);
 		} else if (min == null || max == null){
-			System.out.println("two");
-			res = apiServ.findRecipe(food,diet);	
-		} else if (diet == null || diet.isEmpty()){  //problems
-			System.out.println("three");
+			res = apiServ.findRecipe(food,diet);
+			url = apiServ.findUrl(food, diet);
+		} else if (diet == null || diet.isEmpty()){  
 			res = apiServ.findRecipe(food,min, max);
+			url = apiServ.findUrl(food, min, max);
 		} else {
-			System.out.println("four");
 			res = apiServ.findRecipe(food, diet, min, max);
+			url = apiServ.findUrl(food, diet, min, max);
 		}
+		System.out.println(url);
+		
 		mav.addObject("recipes", res.getHits());
 		mav.addObject("q", res.getQ());
+		mav.addObject("theUrl", url);
 
 		return mav;
 		
-	}
-	
-	@RequestMapping("/recipe-detail")
-	public ModelAndView recipeDetail(@RequestParam ("label") String label) {
-		RecipeResponse res = apiServ.findRecipe(label);
-		return new ModelAndView("recipe-detail", "recipes", res.getHits());
 	}
 	
 	@RequestMapping("/one-recipe")
@@ -72,13 +70,16 @@ public class RecipeApiController {
 	}
 	
 	@RequestMapping("/favorite")
-	public ModelAndView showFavorite(@RequestParam ("label") String label, @RequestParam("url") String url) {
+	public ModelAndView showFavorite(@RequestParam ("label") String label, @RequestParam("url") String url,
+			@RequestParam("theUrl") String theUrl) {
+		
+		System.out.println(theUrl);
 		
 		Favorite fav = new Favorite();
 		fav.setLabel(label);
 		fav.setUrl(url);
 		
 		favRepo.save(fav);
-		return new ModelAndView ("redirect:/");
+		return new ModelAndView ("redirect:/"+theUrl);
 	}
 }
