@@ -27,7 +27,12 @@
 						<!-- <th scope="col">Ingredients</th> -->
 						<th scope="col">Calories</th>
 						<th scope="col">Total Time</th>
-												<th scope="col">See Ingredients</th>
+												<th scope="col">Vist Website</th>
+						
+						<th scope="col">See Ingredients</th>
+						<th scope="col">Mark as favorite</th>
+						
+						
 						
 
 					</tr>
@@ -41,7 +46,10 @@
 							<!-- <th scope="row">${ res.recipe.ingredientLines }</th> -->
 							<th scope="row">${ res.recipe.calories }</th>
 							<th scope="row">${ res.recipe.totalTime }</th>
-							<th><button name="one" value="${res.recipe.label}${ res.recipe.ingredientLines }">Check Me</button></th>
+							<th scope="row"><a href="${ res.recipe.url }">Link</a></th>
+							
+							<th><button name="one" value="${res.recipe.label}${ res.recipe.ingredientLines } ">Check Me</button></th>
+							<th><input type="radio" name="fav" value="true">favorite</th>
 						</tr>
 
 

@@ -13,6 +13,7 @@ public class Recipe {
 	private List<String> ingredientLines;
 	private Integer calories;
 	private Double totalTime;
+	
 	public String getUri() {
 		return uri;
 	}
