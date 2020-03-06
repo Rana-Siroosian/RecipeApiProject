@@ -48,7 +48,6 @@ public class RecipeApiService {
 		}
 		
 		RecipeResponse response = rt.getForObject(url, RecipeResponse.class);
-		System.out.println(response);
 		return response;
 	}
 	
@@ -66,7 +65,6 @@ public class RecipeApiService {
 		url += "&calories="+min+"-"+max;
 		
 		RecipeResponse response = rt.getForObject(url, RecipeResponse.class);
-		System.out.println(response);
 		return response;
 	}
 	
@@ -79,10 +77,18 @@ public class RecipeApiService {
 		
 		url += "&calories="+min+"-"+max;
 		
-		System.out.println(url);
+		RecipeResponse response = rt.getForObject(url, RecipeResponse.class);
+		return response;
+	}
+	
+	public RecipeResponse findRecipe(String food, String label) {
+		String id ="8ad75853";
+		String key = "63b976796710fec2131492b3d8e4f9a3";
+		String url = "https://api.edamam.com/search?app_id="+id+"&app_key="+key+"&q="+food;
+		
+		url += "&label=" + label;
 		
 		RecipeResponse response = rt.getForObject(url, RecipeResponse.class);
-		System.out.println(response);
 		return response;
 	}
 	

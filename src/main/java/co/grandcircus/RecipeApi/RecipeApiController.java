@@ -31,9 +31,6 @@ public class RecipeApiController {
 			@RequestParam(value="maxcal", required=false) Integer max ){
 		ModelAndView mav = new ModelAndView ("request");
 		
-		System.out.println(min);
-		System.out.println(max);
-		
 		RecipeResponse res = null;
 		if((diet == null || diet.isEmpty()) && (min == null || max == null)) {
 			System.out.println("one");
@@ -49,8 +46,16 @@ public class RecipeApiController {
 			res = apiServ.findRecipe(food, diet, min, max);
 		}
 		mav.addObject("recipes", res.getHits());
+		mav.addObject("q", res.getQ());
 
 		return mav;
 		
 	}
+	
+	@RequestMapping("/recipe-detail")
+	public ModelAndView recipeDetail(@RequestParam ("label") String label) {
+		RecipeResponse res = apiServ.findRecipe(label);
+		return new ModelAndView("recipe-detail", "recipes", res.getHits());
+	}
+	
 }
