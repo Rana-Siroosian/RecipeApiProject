@@ -4,17 +4,21 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import co.grandcircus.RecipeApi.Entity.Hit;
+import co.grandcircus.RecipeApi.Entity.Favorite;
 import co.grandcircus.RecipeApi.Entity.RecipeResponse;
+import co.grandcircus.RecipeApi.Repo.FavoriteRepo;
 
 @Controller
 public class RecipeApiController {
 	
+	@Autowired
+	private FavoriteRepo favRepo;
 	
 	@Autowired
 	private RecipeApiService apiServ;
@@ -24,7 +28,7 @@ public class RecipeApiController {
 		return new ModelAndView ("home");
 	}
 	
-	@PostMapping("/")
+	@RequestMapping("/search")
 	public ModelAndView showHome(@RequestParam(value="food") String food, 
 			@RequestParam(value="diet", required=false) List<String> diet,
 			@RequestParam(value="mincal", required=false) Integer min,
@@ -65,5 +69,16 @@ public class RecipeApiController {
 //		RecipeResponse recipe = apiServ.
 		mav.addObject("ones", one);
 		return mav;
+	}
+	
+	@RequestMapping("/favorite")
+	public ModelAndView showFavorite(@PathVariable ("label") String label, @PathVariable("url") String url) {
+		
+		Favorite fav = new Favorite();
+		fav.setLabel(label);
+		fav.setUrl(url);
+		
+		favRepo.save(fav);
+		return new ModelAndView ("redirect:/search");
 	}
 }

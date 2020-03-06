@@ -16,7 +16,7 @@
 </head>
 <body>
 	<main class="container">
-		<form action="/" method="post">
+		<form action="/search" >
 			<section class="jumbotron">
 			<h2>Food Search</h2>
 			</section>

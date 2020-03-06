@@ -49,7 +49,7 @@
 							<th scope="row"><a href="${ res.recipe.url }">Link</a></th>
 							
 							<th><button name="one" value="${res.recipe.label}${ res.recipe.ingredientLines } ">Check Me</button></th>
-							<th><input type="radio" name="fav" value="true">favorite</th>
+							<th><button href="/favorite?label=${res.recipe.label }&url=${res.recipe.url}" name="fav" value="true">favorite</button></th>
 						</tr>
 
 
