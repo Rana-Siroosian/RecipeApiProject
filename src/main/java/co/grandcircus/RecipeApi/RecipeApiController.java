@@ -58,4 +58,12 @@ public class RecipeApiController {
 		return new ModelAndView("recipe-detail", "recipes", res.getHits());
 	}
 	
+	@RequestMapping("/one-recipe")
+	public ModelAndView showOne(@RequestParam("one") List<String> one) {
+		
+		ModelAndView mav = new ModelAndView ("recipe-detail");
+//		RecipeResponse recipe = apiServ.
+		mav.addObject("ones", one);
+		return mav;
+	}
 }

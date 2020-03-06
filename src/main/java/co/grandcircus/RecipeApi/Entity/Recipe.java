@@ -11,7 +11,7 @@ public class Recipe {
 	private String url;
 	private List<String> dietLabels;
 	private List<String> ingredientLines;
-	private Double calories;
+	private Integer calories;
 	private Double totalTime;
 	public String getUri() {
 		return uri;
@@ -52,10 +52,10 @@ public class Recipe {
 		
 		this.ingredientLines = ingredientLines;
 	}
-	public Double getCalories() {
+	public Integer getCalories() {
 		return calories;
 	}
-	public void setCalories(Double calories) {
+	public void setCalories(Integer calories) {
 		this.calories = calories;
 	}
 	public Double getTotalTime() {

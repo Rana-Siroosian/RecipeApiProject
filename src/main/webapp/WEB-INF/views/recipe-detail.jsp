@@ -18,22 +18,16 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th scope="col">Name</th>
 						<th scope="col">Ingredients</th>
-						<th scope="col">Calories</th>
-						<th scope="col">Total Time</th>
-						<th scope="col">Image</th>
+						
 
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="res" items="${recipes}">
+					<c:forEach var="res" items="${ones}">
 						<tr>
-							<th scope="row">${ res.recipe.label }</th>
-							<th scope="row">${ res.recipe.ingredientLines }</th>
-							<th scope="row">${ res.recipe.calories }</th>
-							<th scope="row">${ res.recipe.totalTime }</th>
-							<th scope="row"><img src="${ res.recipe.image }"></th>
+							<th scope="row">${ res }</th>
+						
 						</tr>
 
 

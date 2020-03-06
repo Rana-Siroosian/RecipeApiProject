@@ -16,27 +16,32 @@
 </head>
 <body>
 	<main class="container">
-
+<form action="/one-recipe">
 		<section class="jumbotron">
 			<table class="table table-striped">
 				<thead>
 					<tr>
+											<th scope="col">Image</th>
+					
 						<th scope="col">Name</th>
-						<th scope="col">Ingredients</th>
+						<!-- <th scope="col">Ingredients</th> -->
 						<th scope="col">Calories</th>
 						<th scope="col">Total Time</th>
-						<th scope="col">Image</th>
+												<th scope="col">See Ingredients</th>
+						
 
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach var="res" items="${recipes}">
 						<tr>
-							<th scope="row"><a href="/recipe-detail?label=${res.recipe.label}">${ res.recipe.label }</a></th>
-							<th scope="row">${ res.recipe.ingredientLines }</th>
+													<th scope="row"><img src="${ res.recipe.image }"></th>
+						
+							<th scope="row">${ res.recipe.label }</th>
+							<!-- <th scope="row">${ res.recipe.ingredientLines }</th> -->
 							<th scope="row">${ res.recipe.calories }</th>
 							<th scope="row">${ res.recipe.totalTime }</th>
-							<th scope="row"><img src="${ res.recipe.image }"></th>
+							<th><button name="one" value="${res.recipe.label}${ res.recipe.ingredientLines }">Check Me</button></th>
 						</tr>
 
 
@@ -45,7 +50,7 @@
 				</tbody>
 			</table>
 		</section>
-
+</form>
 	</main>
 </body>
 </html>
