@@ -16,49 +16,43 @@
 </head>
 <body>
 	<main class="container">
-<form action="/one-recipe">
-		<section class="jumbotron">
-			<table class="table table-striped">
-				<thead>
-					<tr>
-											<th scope="col">Image</th>
-					
-						<th scope="col">Name</th>
-						<!-- <th scope="col">Ingredients</th> -->
-						<th scope="col">Calories</th>
-						<th scope="col">Total Time</th>
-												<th scope="col">Vist Website</th>
-						
-						<th scope="col">See Ingredients</th>
-						<th scope="col">Mark as favorite</th>
-						
-						
-						
-
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="res" items="${recipes}">
+			<section class="jumbotron">
+				<table class="table table-striped">
+					<thead>
 						<tr>
-													<th scope="row"><img src="${ res.recipe.image }"></th>
-						
-							<th scope="row">${ res.recipe.label }</th>
-							<!-- <th scope="row">${ res.recipe.ingredientLines }</th> -->
-							<th scope="row">${ res.recipe.calories }</th>
-							<th scope="row">${ res.recipe.totalTime }</th>
-							<th scope="row"><a href="${ res.recipe.url }">Link</a></th>
-							
-							<th><button name="one" value="${res.recipe.label}${ res.recipe.ingredientLines } ">Check Me</button></th>
-							<th><button href="/favorite?label=${res.recipe.label }&url=${res.recipe.url}" name="fav" value="true">favorite</button></th>
+							<th scope="col">Image</th>
+
+							<th scope="col">Name</th>
+							<!-- <th scope="col">Ingredients</th> -->
+							<th scope="col">Calories</th>
+							<th scope="col">Total Time</th>
+							<th scope="col">Vist Website</th>
+
+							<th scope="col">See Ingredients</th>
+							<th scope="col">Mark as favorite</th>
+
 						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="res" items="${recipes}">
+							<tr>
+								<th scope="row"><img src="${ res.recipe.image }"></th>
 
+								<th scope="row">${ res.recipe.label }</th>
+								<!-- <th scope="row">${ res.recipe.ingredientLines }</th> -->
+								<th scope="row">${ res.recipe.calories }</th>
+								<th scope="row">${ res.recipe.totalTime }</th>
+								<th scope="row"><a href="${ res.recipe.url }">Link</a></th>
 
+								<th><a class = "btn btn-secondary" href="one-recipe/?ingre=${res.recipe.ingredientLines}">Check
+										Me</a></th>
+								<th><a class = "btn btn-secondary" href="/favorite?label=${res.recipe.label }&url=${res.recipe.url}">Favorite</a></th>
+							</tr>
 
-					</c:forEach>
-				</tbody>
-			</table>
-		</section>
-</form>
+						</c:forEach>
+					</tbody>
+				</table>
+			</section>
 	</main>
 </body>
 </html>

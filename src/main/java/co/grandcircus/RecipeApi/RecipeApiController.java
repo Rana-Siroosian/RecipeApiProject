@@ -63,22 +63,22 @@ public class RecipeApiController {
 	}
 	
 	@RequestMapping("/one-recipe")
-	public ModelAndView showOne(@RequestParam("one") List<String> one) {
-		
-		ModelAndView mav = new ModelAndView ("recipe-detail");
+	public ModelAndView showOne(@RequestParam("ingre") List<String> ingre) {
+	
+		ModelAndView mav = new ModelAndView("recipe-detail");
 //		RecipeResponse recipe = apiServ.
-		mav.addObject("ones", one);
+		mav.addObject("ones", ingre);
 		return mav;
 	}
 	
 	@RequestMapping("/favorite")
-	public ModelAndView showFavorite(@PathVariable ("label") String label, @PathVariable("url") String url) {
+	public ModelAndView showFavorite(@RequestParam ("label") String label, @RequestParam("url") String url) {
 		
 		Favorite fav = new Favorite();
 		fav.setLabel(label);
 		fav.setUrl(url);
 		
 		favRepo.save(fav);
-		return new ModelAndView ("redirect:/search");
+		return new ModelAndView ("redirect:/");
 	}
 }
