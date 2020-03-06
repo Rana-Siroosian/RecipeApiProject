@@ -29,9 +29,12 @@
 			<label><input type="checkbox" name="diet" value="low-carb">Low-Carb</label>
 			<label><input type="checkbox" name="diet" value="low-fat">Low-fat</label>
 			<label><input type="checkbox" name="diet" value="low-sodium">Low-Sodium</label>
-				</section>
+			</section>
 				<section>
-				<span>Calories</span><br><input type="number" name="mincal" step="0.1"placeholder="Min"><br><input type="number" name="maxcal" step="0.1"placeholder="Max">
+				<span>Calories</span><br>
+				<input type="number" name="mincal" placeholder="Min"/>
+				<br>
+				<input type="number" name="maxcal" placeholder="Max"/>
 				</section>		
 			
 			</fieldset>

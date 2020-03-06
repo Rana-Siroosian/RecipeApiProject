@@ -53,7 +53,7 @@ public class RecipeApiService {
 	}
 	
 	// Queries, diet and calories
-	public RecipeResponse findRecipe(String food, List<String> diet, Double min, Double max) {
+	public RecipeResponse findRecipe(String food, List<String> diet, Integer min, Integer max) {
 		
 		String id ="8ad75853";
 		String key = "63b976796710fec2131492b3d8e4f9a3";
@@ -71,13 +71,15 @@ public class RecipeApiService {
 	}
 	
 	// Queries and calories
-	public RecipeResponse findRecipe(String food, Double min, Double max) {
-		
+	public RecipeResponse findRecipe(String food, Integer min, Integer max) {
+		System.out.println("hello");
 		String id ="8ad75853";
 		String key = "63b976796710fec2131492b3d8e4f9a3";
 		String url = "https://api.edamam.com/search?app_id="+id+"&app_key="+key+"&q="+food;
 		
 		url += "&calories="+min+"-"+max;
+		
+		System.out.println(url);
 		
 		RecipeResponse response = rt.getForObject(url, RecipeResponse.class);
 		System.out.println(response);
