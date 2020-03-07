@@ -83,5 +83,18 @@ public class RecipeApiController {
 		return mav;
 	}
 
+	@RequestMapping("/favorite-list")
+	public ModelAndView showFavorite() {
+		
+		List<Favorite> fav = favRepo.findAll();
+		
+		return new ModelAndView("favorite-list", "favorites", fav);
+	}
+	
+	@RequestMapping("/favorite/remove")
+	public ModelAndView showRemove(@RequestParam("id") Long id) {
+		favRepo.deleteById(id);
+		return new ModelAndView("redirect:/favorite-list");
+	}
 
 }

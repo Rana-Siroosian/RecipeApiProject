@@ -17,6 +17,8 @@
 </head>
 <body>
 	<main class="container">
+	<%@ include file="partials/header.jsp" %>
+	
 		<section class="jumbotron">
 			<table class="table table-striped">
 				<thead>
@@ -45,9 +47,7 @@
 							<th scope="row">${ res.recipe.totalTime }</th>
 							<th scope="row"><a href="${ res.recipe.url }">Link</a></th>
 
-							<th><a class="btn btn-secondary"
-								href="one-recipe/?ingre=${res.recipe.ingredientLines}">Check
-									Me</a></th>
+							<th><a href="one-recipe/?ingre=${res.recipe.ingredientLines}">Check	Me</a></th>
 
 							<th>
 								<form action="/search">

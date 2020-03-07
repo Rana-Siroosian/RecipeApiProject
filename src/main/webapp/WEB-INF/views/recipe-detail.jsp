@@ -11,8 +11,8 @@
 </head>
 <body>
 
-
 <main class="container">
+<%@ include file="partials/header.jsp" %>
 
 		<section class="jumbotron">
 			<table class="table table-striped">
@@ -35,6 +35,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			<button type="submit">Go Back</button>
 		</section>
 
 	</main>
