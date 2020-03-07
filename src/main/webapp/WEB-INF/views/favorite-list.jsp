@@ -38,17 +38,21 @@
 							<th scope="row"><a
 								href="/favorite/remove/?id=${favorite.id }"
 								class="btn btn-success">Remove</a></th>
+							<th scope="row">
+							<th scope="row">
+							<form action="/favorite-list">
+							<input type="hidden" name="id" value="${favorite.id}"/>
+							<input type="hidden" name="theUrl" value="${theUrl}"/>
+							<button type="submit" class="btn btn-warning">Remove</button>
+							</form>
+							</th>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 			<form action="/search">
-
-				<input type="hidden" name="label" value="${favorite.label}" /> <input
-					type="hidden" name="url" value="${favorite.url}" /> <input
-					type="hidden" name="theUrl" value="${theUrl}" />
-				<button type=submit>Go Back</button>
-
+					<input type="hidden" name="theUrl" value="${theUrl}" />
+					<button type=submit>Go Back</button>
 			</form>
 		</section>
 
