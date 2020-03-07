@@ -12,6 +12,7 @@
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="/style.css" />
+<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/solar/bootstrap.min.css" rel="stylesheet" integrity="sha384-Ya0fS7U2c07GI3XufLEwSQlqhpN0ri7w/ujyveyqoxTJ2rFHJcT6SUhwhL7GM4h9" crossorigin="anonymous">
 
 </head>
 <body>
@@ -36,7 +37,7 @@
 							<th scope="row"><a href="${favorite.url }">${favorite.url }</a></th>
 							<th scope="row"><a
 								href="/favorite/remove/?id=${favorite.id }"
-								class="btn btn-warning">Remove</a></th>
+								class="btn btn-success">Remove</a></th>
 						</tr>
 					</c:forEach>
 				</tbody>
