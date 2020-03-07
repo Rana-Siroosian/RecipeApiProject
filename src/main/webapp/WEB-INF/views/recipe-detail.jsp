@@ -12,7 +12,8 @@
 <body>
 
 <main class="container">
-<%@ include file="partials/header.jsp" %>
+ <%@ include file="partials/header.jsp" %> 
+
 
 		<section class="jumbotron">
 			<table class="table table-striped">
@@ -35,7 +36,10 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			<form action="/search">
+			<input type="hidden" name="theUrl" value="${theUrl}" />
 			<button type="submit">Go Back</button>
+			</form>
 		</section>
 
 	</main>

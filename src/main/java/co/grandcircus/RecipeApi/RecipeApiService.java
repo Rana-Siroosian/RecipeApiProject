@@ -49,9 +49,7 @@ public class RecipeApiService {
 	public RecipeResponse findRecipe(String food, List<String> diet, Integer min, Integer max) {
 
 		String url = findUrl(food, diet, min, max);
-		System.out.println("hello");
 		RecipeResponse response = rt.getForObject(url, RecipeResponse.class);  // error or this line of every method if didnt find anything (api's fault)
-		System.out.println(response);
 		return response;
 	}
 
