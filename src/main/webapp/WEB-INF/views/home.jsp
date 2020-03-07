@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<!-- <meta charset="UTF-8"> -->
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -22,6 +23,7 @@
 			</section>
 			<fieldset>
 			<label>Food Name<input type="text" name="food" required></label>
+			<label><input type="hidden" name="theUrl"></label>
 			<section class="container">
 			<label><input type="checkbox" name="diet" value="balanced">Balanced</label>
 			<label><input type="checkbox" name="diet" value="high-fiber">High-Fiber</label>
