@@ -12,7 +12,11 @@
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="/style.css" />
-<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/solar/bootstrap.min.css" rel="stylesheet" integrity="sha384-Ya0fS7U2c07GI3XufLEwSQlqhpN0ri7w/ujyveyqoxTJ2rFHJcT6SUhwhL7GM4h9" crossorigin="anonymous">
+<link
+	href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/solar/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Ya0fS7U2c07GI3XufLEwSQlqhpN0ri7w/ujyveyqoxTJ2rFHJcT6SUhwhL7GM4h9"
+	crossorigin="anonymous">
 
 </head>
 <body>
@@ -40,19 +44,19 @@
 								class="btn btn-success">Remove</a></th>
 							<th scope="row">
 							<th scope="row">
-							<form action="/favorite-list">
-							<input type="hidden" name="id" value="${favorite.id}"/>
-							<input type="hidden" name="theUrl" value="${theUrl}"/>
-							<button type="submit" class="btn btn-warning">Remove</button>
-							</form>
+								<form action="/favorite-list">
+									<input type="hidden" name="id" value="${favorite.id}" /> <input
+										type="hidden" name="theUrl" value="${theUrl}" />
+									<button type="submit" class="btn btn-warning">Remove</button>
+								</form>
 							</th>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 			<form action="/search">
-					<input type="hidden" name="theUrl" value="${theUrl}" />
-					<button type=submit>Go Back</button>
+				<input type="hidden" name="theUrl" value="${theUrl}" />
+				<button type=submit>Go Back</button>
 			</form>
 		</section>
 

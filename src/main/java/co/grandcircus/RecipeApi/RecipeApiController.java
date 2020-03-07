@@ -27,7 +27,7 @@ public class RecipeApiController {
 	}
 
 	@RequestMapping("/search")
-	public ModelAndView showHome( @RequestParam(value = "label", required = false) String label,
+	public ModelAndView showHome(@RequestParam(value = "label", required = false) String label,
 			@RequestParam(value = "url", required = false) String url,
 			@RequestParam(value = "theUrl", required = false) String theUrl,
 			@RequestParam(value = "food", required = false) String food,
@@ -37,16 +37,14 @@ public class RecipeApiController {
 
 		ModelAndView mav = new ModelAndView("request");
 		RecipeResponse res = null;
-		
-		
+
 //		System.out.println(theUrl.isEmpty());
 //		System.out.println(theUrl);    //first search: blank    favorite: string   back: string
 //		System.out.println(label);     //first search: null     favorite: string   back: null
 //		System.out.println(url);       //first search: null     favorite: string   back: null
-		
-		
+
 		// Adding a Favorite
-		if (!theUrl.isBlank() && label!=null && url!=null) {
+		if (!theUrl.isBlank() && label != null && url != null) {
 			Favorite fav = new Favorite();
 			fav.setLabel(label);
 			fav.setUrl(url);
@@ -56,12 +54,12 @@ public class RecipeApiController {
 			res = apiServ.findRecipeWitUrl(theUrl);
 			mav.addObject("theUrl", theUrl);
 
-		// Going back
-		} else if (!theUrl.isBlank() && label==null && url==null) {
+			// Going back
+		} else if (!theUrl.isBlank() && label == null && url == null) {
 			res = apiServ.findRecipeWitUrl(theUrl);
 			mav.addObject("theUrl", theUrl);
-			
-		// First search
+
+			// First search
 		} else {
 			String otherUrl = null;
 			if ((diet == null || diet.isEmpty()) && (min == null || max == null)) {
@@ -76,7 +74,7 @@ public class RecipeApiController {
 			} else {
 				res = apiServ.findRecipe(food, diet, min, max);
 				otherUrl = apiServ.findUrl(food, diet, min, max);
-				
+
 			}
 			mav.addObject("theUrl", otherUrl);
 		}
@@ -89,9 +87,8 @@ public class RecipeApiController {
 	}
 
 	@RequestMapping("/one-recipe")
-	public ModelAndView showOne(@RequestParam("ingre") List<String> ingre,
-			@RequestParam("theUrl") String theUrl) {
-		
+	public ModelAndView showOne(@RequestParam("ingre") List<String> ingre, @RequestParam("theUrl") String theUrl) {
+
 		ModelAndView mav = new ModelAndView("recipe-detail");
 
 		mav.addObject("ones", ingre);
@@ -101,20 +98,19 @@ public class RecipeApiController {
 
 	@RequestMapping("/favorite-list")
 	public ModelAndView showFavorite(@RequestParam("theUrl") String theUrl,
-			@RequestParam(value="id",required=false) Long id) {
-		
-		if (id!=null) {
+			@RequestParam(value = "id", required = false) Long id) {
+
+		if (id != null) {
 			favRepo.deleteById(id);
 		}
-		
+
 		List<Favorite> fav = favRepo.findAll();
-		
+
 		ModelAndView mav = new ModelAndView("favorite-list");
 		mav.addObject("favorites", fav);
 		mav.addObject("theUrl", theUrl);
 		return mav;
 
 	}
-	
 
 }
