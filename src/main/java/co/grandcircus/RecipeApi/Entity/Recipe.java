@@ -13,7 +13,14 @@ public class Recipe {
 	private List<String> ingredientLines;
 	private Integer calories;
 	private Double totalTime;
+	private String yield;
 	
+	public String getYield() {
+		return yield;
+	}
+	public void setYield(String yield) {
+		this.yield = yield;
+	}
 	public String getUri() {
 		return uri;
 	}
@@ -67,11 +74,12 @@ public class Recipe {
 	}
 	@Override
 	public String toString() {
-		
 		return "Recipe [uri=" + uri + ", label=" + label + ", image=" + image + ", url=" + url + ", dietLabels="
 				+ dietLabels + ", ingredientLines=" + ingredientLines + ", calories=" + calories + ", totalTime="
-				+ totalTime + "]";
+				+ totalTime + ", yield=" + yield + "]";
 	}
+	
+	
 	
 	
 	

@@ -33,6 +33,8 @@
 
 						<th scope="col">Name</th>
 						<!-- <th scope="col">Ingredients</th> -->
+						<th scope="col">Qty</th>
+
 						<th scope="col">Calories</th>
 						<th scope="col">Total Time</th>
 						<th scope="col">Vist Website</th>
@@ -49,7 +51,8 @@
 
 							<th scope="row">${ res.recipe.label }</th>
 							<!-- <th scope="row">${ res.recipe.ingredientLines }</th> -->
-							<th scope="row">${ res.recipe.calories }</th>
+							<th scope="row">${res.recipe.yield /res.recipe.yield} serving</th>
+							<th scope="row">${ res.recipe.calories /res.recipe.yield }</th>
 							<th scope="row">${ res.recipe.totalTime }</th>
 							<th scope="row"><a href="${ res.recipe.url }">Link</a></th>
 
@@ -58,14 +61,14 @@
 									<input type="hidden" name="ingre"
 										value="${res.recipe.ingredientLines}" /> <input type="hidden"
 										name="theUrl" value="${theUrl}" />
-												
+
 									<button type="submit">Check</button>
 								</form>
 
 							</th>
 
 							<th>
-<%-- 							
+								<%-- 							
      						<c:forEach var="fav" items="${favorites}">
      						<c:choose>
     						<c:when test="${fn:contains(favorites.label, res.recipe.label)}">
@@ -77,24 +80,26 @@
     						</c:otherwise>
 							</c:choose>
      						 --%>
-							
-							
+
+
 								<form action="/search">
 
 									<input type="hidden" name="label" value="${res.recipe.label}" />
 									<input type="hidden" name="url" value="${res.recipe.url}" /> <input
 										type="hidden" name="theUrl" value="${theUrl}" />
-										
-							<c:choose>
-    						<c:when test="${empty favorited[status.index]}">
-    						<p><button type="submit">Favorite Me</button></p>	
-    						</c:when>    
-    						<c:otherwise>
-    						<p>Favorited</p>
-        					<br />
-    						</c:otherwise>
-							</c:choose>	
-										
+
+									<c:choose>
+										<c:when test="${empty favorited[status.index]}">
+											<p>
+												<button type="submit">Favorite Me</button>
+											</p>
+										</c:when>
+										<c:otherwise>
+											<p>Favorited</p>
+											<br />
+										</c:otherwise>
+									</c:choose>
+
 
 								</form>
 							</th>
