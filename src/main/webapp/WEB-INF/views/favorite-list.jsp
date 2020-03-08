@@ -39,15 +39,12 @@
 						<tr>
 							<th scope="row">${favorite.label }</th>
 							<th scope="row"><a href="${favorite.url }">${favorite.url }</a></th>
-							<th scope="row"><a
-								href="/favorite/remove/?id=${favorite.id }"
-								class="btn btn-success">Remove</a></th>
-							<th scope="row">
+							
 							<th scope="row">
 								<form action="/favorite-list">
 									<input type="hidden" name="id" value="${favorite.id}" /> <input
 										type="hidden" name="theUrl" value="${theUrl}" />
-									<button type="submit" class="btn btn-warning">Remove</button>
+									<button type="submit" class="btn btn-success">Remove</button>
 								</form>
 							</th>
 						</tr>

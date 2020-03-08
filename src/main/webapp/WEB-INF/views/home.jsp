@@ -41,6 +41,7 @@ input[type=text] {
 	border-radius: 4px;
 	left: 230px;
 	bottom: 330px;
+	color: black;
 }
 
 input[type=number] {
@@ -48,6 +49,7 @@ input[type=number] {
 	border-radius: 4px;
 	left: 230px;
 	bottom: 330px;
+	color: black;
 }
 
 button[type=submit] {
