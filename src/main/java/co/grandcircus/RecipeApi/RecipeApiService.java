@@ -1,5 +1,6 @@
 package co.grandcircus.RecipeApi;
 
+import java.net.URLEncoder;
 import java.util.List;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -102,7 +103,14 @@ public class RecipeApiService {
 
 		String url = "https://api.edamam.com/search?app_id=" + id + "&app_key=" + key + "&q=" + food;
 
-		url += "&calories=" + min + "-" + max;
+//		if (min == null) {
+//			url += "&calories=" + max;
+//		} else if (max == null) {
+//			url += "&calories=" + URLEncoder.encode(min+"+");
+//			//url += "&calories=" + min + "%2B";
+//		} else {
+			url += "&calories=" + min + "-" + max;
+//		}
 		return url;
 	}
 

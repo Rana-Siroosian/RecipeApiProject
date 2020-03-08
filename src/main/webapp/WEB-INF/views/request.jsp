@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%-- <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %> --%>
 
 <!DOCTYPE html>
 <html>
@@ -41,7 +43,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="res" items="${recipes}">
+					<c:forEach var="res" items="${recipes}" varStatus="status">
 						<tr>
 							<th scope="row"><img src="${ res.recipe.image }"></th>
 
@@ -56,18 +58,43 @@
 									<input type="hidden" name="ingre"
 										value="${res.recipe.ingredientLines}" /> <input type="hidden"
 										name="theUrl" value="${theUrl}" />
+												
 									<button type="submit">Check</button>
 								</form>
 
 							</th>
 
 							<th>
+<%-- 							
+     						<c:forEach var="fav" items="${favorites}">
+     						<c:choose>
+    						<c:when test="${fn:contains(favorites.label, res.recipe.label)}">
+        					<p>pizza. </p>
+    						</c:when>    
+    						<c:otherwise>
+    						<p> not pizzas.  </p>
+        					<br />
+    						</c:otherwise>
+							</c:choose>
+     						 --%>
+							
+							
 								<form action="/search">
 
 									<input type="hidden" name="label" value="${res.recipe.label}" />
 									<input type="hidden" name="url" value="${res.recipe.url}" /> <input
 										type="hidden" name="theUrl" value="${theUrl}" />
-									<button type=submit>Favorite</button>
+										
+							<c:choose>
+    						<c:when test="${empty favorited[status.index]}">
+    						<p><button type="submit">Favorite Me</button></p>	
+    						</c:when>    
+    						<c:otherwise>
+    						<p>Favorited</p>
+        					<br />
+    						</c:otherwise>
+							</c:choose>	
+										
 
 								</form>
 							</th>

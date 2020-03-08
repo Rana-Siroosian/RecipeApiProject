@@ -1,5 +1,6 @@
 package co.grandcircus.RecipeApi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.grandcircus.RecipeApi.Entity.Favorite;
+import co.grandcircus.RecipeApi.Entity.Hit;
 import co.grandcircus.RecipeApi.Entity.RecipeResponse;
 import co.grandcircus.RecipeApi.Repo.FavoriteRepo;
 
@@ -35,6 +37,7 @@ public class RecipeApiController {
 			@RequestParam(value = "mincal", required = false) Integer min,
 			@RequestParam(value = "maxcal", required = false) Integer max) {
 
+		
 		ModelAndView mav = new ModelAndView("request");
 		RecipeResponse res = null;
 
@@ -42,6 +45,7 @@ public class RecipeApiController {
 //		System.out.println(theUrl);    //first search: blank    favorite: string   back: string
 //		System.out.println(label);     //first search: null     favorite: string   back: null
 //		System.out.println(url);       //first search: null     favorite: string   back: null
+		
 
 		// Adding a Favorite
 		if (!theUrl.isBlank() && label != null && url != null) {
@@ -61,24 +65,68 @@ public class RecipeApiController {
 
 			// First search
 		} else {
+			
 			String otherUrl = null;
-			if ((diet == null || diet.isEmpty()) && (min == null || max == null)) {
+			
+			// Only query
+			
+			if (diet == null  && min == null && max == null) {
+				
 				res = apiServ.findRecipe(food);
 				otherUrl = apiServ.findUrl(food);
-			} else if (min == null || max == null) {
+				
+			// Query and Diet	
+				
+			} else if (diet != null && min == null && max == null) {
+				
 				res = apiServ.findRecipe(food, diet);
 				otherUrl = apiServ.findUrl(food, diet);
-			} else if (diet == null || diet.isEmpty()) {
+				
+				
+			// Query and Calories	
+			} else if (diet == null && (min!=null || max!=null)) {
+
 				res = apiServ.findRecipe(food, min, max);
+				
+				System.out.println(res);
+				
 				otherUrl = apiServ.findUrl(food, min, max);
+				
+				
+			// Query and Diet and Calories	
 			} else {
+
+				if (food==null) {
+					food = "chicken";
+				}
 				res = apiServ.findRecipe(food, diet, min, max);
 				otherUrl = apiServ.findUrl(food, diet, min, max);
 
 			}
 			mav.addObject("theUrl", otherUrl);
 		}
-
+		
+		List<Favorite> fav = favRepo.findAll();
+		List<String> favorited = new ArrayList<>();
+		for (Favorite f : fav) {
+			favorited.add(null);
+		}
+		
+		for (Hit h : res.getHits()) {
+			
+			for (Favorite f : fav) {	
+				
+			if (h.getRecipe().getLabel().equals(f.getLabel())) {
+				
+				int index = res.getHits().indexOf(h);
+				
+				favorited.add(index, "Favorited");
+				break;
+			}
+		}	
+		}
+		
+		mav.addObject("favorited", favorited);
 		mav.addObject("recipes", res.getHits());
 		mav.addObject("q", res.getQ());
 
