@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%-- <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %> --%>
 
@@ -52,7 +54,14 @@
 							<th scope="row">${ res.recipe.label }</th>
 							<!-- <th scope="row">${ res.recipe.ingredientLines }</th> -->
 							<th scope="row">${res.recipe.yield} servings</th>
-							<th scope="row">${ res.recipe.calories /res.recipe.yield}</th>
+							
+							
+							<th scope="row"><fmt:formatNumber
+  value="${ res.recipe.calories /res.recipe.yield}"
+  maxFractionDigits="0" /></th>
+							
+							
+							<%-- <th scope="row">${ res.recipe.calories /res.recipe.yield}</th> --%>
 							<th scope="row">${ res.recipe.totalTime }</th>
 							<th scope="row"><a href="${ res.recipe.url }">Link</a></th>
 
@@ -68,18 +77,6 @@
 							</th>
 
 							<th>
-								<%-- 							
-     						<c:forEach var="fav" items="${favorites}">
-     						<c:choose>
-    						<c:when test="${fn:contains(favorites.label, res.recipe.label)}">
-        					<p>pizza. </p>
-    						</c:when>    
-    						<c:otherwise>
-    						<p> not pizzas.  </p>
-        					<br />
-    						</c:otherwise>
-							</c:choose>
-     						 --%>
 
 
 								<form action="/search">
