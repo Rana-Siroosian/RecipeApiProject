@@ -77,9 +77,9 @@ input[type=number] {
 				<label><input type="hidden" name="theUrl"></label>
 				<section class="container">
 					<h4>
-						<div class="checkbox checkbox-primary">
+						<label><div class="checkbox checkbox-primary">
 							<input type="checkbox" name="diet" value="balanced">Balanced
-						</div>
+						</div></label>
 					</h4>
 					<!-- <h4>
 						<div class="checkbox checkbox-primary">
@@ -87,19 +87,19 @@ input[type=number] {
 						</div>
 					</h4> -->
 					<h4>
-						<div class="checkbox checkbox-primary">
+					<label>	<div class="checkbox checkbox-primary">
 							<input type="checkbox" name="diet" value="high-protein">High-Protein
-						</div>
+						</div></label>
 					</h4>
 					<h4>
-						<div class="checkbox checkbox-primary">
+					<label>	<div class="checkbox checkbox-primary">
 							<input type="checkbox" name="diet" value="low-carb">Low-Carb
-						</div>
+						</div></label>
 					</h4>
 					<h4>
-						<div class="checkbox checkbox-primary">
+						<label><div class="checkbox checkbox-primary">
 							<input type="checkbox" name="diet" value="low-fat">Low-fat
-						</div>
+						</div></label>
 					</h4>
 				<!-- 	<h4>
 						<div class="checkbox checkbox-primary">
