@@ -1,11 +1,13 @@
 package co.grandcircus.RecipeApi;
 
 import java.net.URLEncoder;
+import java.nio.charset.Charset;
 import java.util.List;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -103,14 +105,14 @@ public class RecipeApiService {
 
 		String url = "https://api.edamam.com/search?app_id=" + id + "&app_key=" + key + "&q=" + food;
 
-//		if (min == null) {
-//			url += "&calories=" + max;
-//		} else if (max == null) {
-//			url += "&calories=" + URLEncoder.encode(min+"+");
-//			//url += "&calories=" + min + "%2B";
-//		} else {
+		if (min == null) {
+			url += "&calories=" + max;
+		} else if (max == null) {
+			url += "&calories=" + URLEncoder.encode(min+"+", Charset.forName("UTF-8"));
+			//url += "&calories=" + min + "%2B";
+		} else {
 			url += "&calories=" + min + "-" + max;
-//		}
+		}
 		return url;
 	}
 
