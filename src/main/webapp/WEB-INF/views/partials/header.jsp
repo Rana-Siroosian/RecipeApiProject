@@ -14,7 +14,7 @@
 	</form>
 
 	<ul class="navbar-nav ml-auto">
-		<li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+		<li class="nav-item"><a href="/" class="nav-link"><h4>Home</h4></a></li>
 
 
 	</ul>
