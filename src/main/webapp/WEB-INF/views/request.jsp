@@ -35,7 +35,7 @@
 
 						<th scope="col">Name</th>
 						<!-- <th scope="col">Ingredients</th> -->
-						<th scope="col">Qty</th>
+						<th scope="col">Qty servings</th>
 
 						<th scope="col">Cal per serving</th>
 						<th scope="col">Total Time(min)</th>
@@ -53,7 +53,7 @@
 
 							<th scope="row">${ res.recipe.label }</th>
 							<!-- <th scope="row">${ res.recipe.ingredientLines }</th> -->
-							<th scope="row">${res.recipe.yield} servings</th>
+							<th scope="row">${res.recipe.yield} </th>
 							
 							
 							<th scope="row"><fmt:formatNumber
@@ -62,7 +62,7 @@
 							
 							
 							<%-- <th scope="row">${ res.recipe.calories /res.recipe.yield}</th> --%>
-							<th scope="row">${ res.recipe.totalTime }</th>
+							<th scope="row"><fmt:formatNumber value="${ res.recipe.totalTime }" maxFractionDigits="0"/></th>
 							<th scope="row"><a href="${ res.recipe.url }" target="_blank">Link</a></th>
 
 							<th>
