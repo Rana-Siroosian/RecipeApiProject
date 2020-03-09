@@ -13,12 +13,12 @@ public class Recipe {
 	private List<String> ingredientLines;
 	private Integer calories;
 	private Double totalTime;
-	private String yield;
+	private Integer yield;
 	
-	public String getYield() {
+	public Integer getYield() {
 		return yield;
 	}
-	public void setYield(String yield) {
+	public void setYield(Integer yield) {
 		this.yield = yield;
 	}
 	public String getUri() {

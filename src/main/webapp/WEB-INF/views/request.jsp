@@ -35,7 +35,7 @@
 						<!-- <th scope="col">Ingredients</th> -->
 						<th scope="col">Qty</th>
 
-						<th scope="col">Calories</th>
+						<th scope="col">Cal per serving</th>
 						<th scope="col">Total Time</th>
 						<th scope="col">Vist Website</th>
 
@@ -51,8 +51,8 @@
 
 							<th scope="row">${ res.recipe.label }</th>
 							<!-- <th scope="row">${ res.recipe.ingredientLines }</th> -->
-							<th scope="row">${res.recipe.yield /res.recipe.yield} serving</th>
-							<th scope="row">${ res.recipe.calories /res.recipe.yield }</th>
+							<th scope="row">${res.recipe.yield} servings</th>
+							<th scope="row">${ res.recipe.calories /res.recipe.yield}</th>
 							<th scope="row">${ res.recipe.totalTime }</th>
 							<th scope="row"><a href="${ res.recipe.url }">Link</a></th>
 
@@ -91,7 +91,7 @@
 									<c:choose>
 										<c:when test="${empty favorited[status.index]}">
 											<p>
-												<button type="submit">Favorite Me</button>
+												<button type="submit">Favorite</button>
 											</p>
 										</c:when>
 										<c:otherwise>
