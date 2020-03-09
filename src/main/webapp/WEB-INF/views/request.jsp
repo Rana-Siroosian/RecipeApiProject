@@ -38,7 +38,7 @@
 						<th scope="col">Qty</th>
 
 						<th scope="col">Cal per serving</th>
-						<th scope="col">Total Time</th>
+						<th scope="col">Total Time(min)</th>
 						<th scope="col">Vist Website</th>
 
 						<th scope="col">See Ingredients</th>
@@ -63,7 +63,7 @@
 							
 							<%-- <th scope="row">${ res.recipe.calories /res.recipe.yield}</th> --%>
 							<th scope="row">${ res.recipe.totalTime }</th>
-							<th scope="row"><a href="${ res.recipe.url }">Link</a></th>
+							<th scope="row"><a href="${ res.recipe.url }" target="_blank">Link</a></th>
 
 							<th>
 								<form action="/one-recipe">

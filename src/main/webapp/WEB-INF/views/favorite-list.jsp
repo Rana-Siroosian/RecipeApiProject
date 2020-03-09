@@ -38,7 +38,7 @@
 					<c:forEach var="favorite" items="${ favorites}">
 						<tr>
 							<th scope="row">${favorite.label }</th>
-							<th scope="row"><a href="${favorite.url }">${favorite.url }</a></th>
+							<th scope="row"><a href="${favorite.url }" target="_blank">${favorite.url }</a></th>
 							
 							<th scope="row">
 								<form action="/favorite-list">

@@ -52,10 +52,10 @@ input[type=number] {
 	color: black;
 }
 
-button[type=submit] {
-	position: absolute;
-	left: 230px;
-	bottom: 180px;
+
+.submit-div {
+	margin-top :11px;
+
 }
 </style>
 </head>
@@ -81,11 +81,11 @@ button[type=submit] {
 							<input type="checkbox" name="diet" value="balanced">Balanced
 						</div>
 					</h4>
-					<h4>
+					<!-- <h4>
 						<div class="checkbox checkbox-primary">
 							<input type="checkbox" name="diet" value="high-fiber">High-Fiber
 						</div>
-					</h4>
+					</h4> -->
 					<h4>
 						<div class="checkbox checkbox-primary">
 							<input type="checkbox" name="diet" value="high-protein">High-Protein
@@ -101,11 +101,11 @@ button[type=submit] {
 							<input type="checkbox" name="diet" value="low-fat">Low-fat
 						</div>
 					</h4>
-					<h4>
+				<!-- 	<h4>
 						<div class="checkbox checkbox-primary">
 							<input type="checkbox" name="diet" value="low-sodium">Low-Sodium
 						</div>
-					</h4>
+					</h4> -->
 				</section>
 				<section>
 					<div>
@@ -122,10 +122,10 @@ button[type=submit] {
 					</div>
 				</section>
 
+				<div class="submit-div">
+					<button type="submit" class="btn btn-warning">Submit</button>
+				</div>
 			</section>
-			<div>
-				<button type="submit" class="btn btn-warning">Submit</button>
-			</div>
 
 		</form>
 	</main>

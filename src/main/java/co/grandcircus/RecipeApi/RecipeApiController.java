@@ -88,7 +88,6 @@ public class RecipeApiController {
 
 				res = apiServ.findRecipe(food, min, max);
 				
-				System.out.println(res);
 				
 				otherUrl = apiServ.findUrl(food, min, max);
 				
@@ -96,9 +95,9 @@ public class RecipeApiController {
 			// Query and Diet and Calories	
 			} else {
 
-				if (food==null) {
-					food = "chicken";
-				}
+//				if (food==null) {
+//					food = "chicken";
+//				}
 				res = apiServ.findRecipe(food, diet, min, max);
 				otherUrl = apiServ.findUrl(food, diet, min, max);
 
